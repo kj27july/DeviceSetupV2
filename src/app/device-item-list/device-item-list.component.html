@@ -1,0 +1,8 @@
+<section>
+    <app-device-item 
+        [batteryLevel]="deviceItem.battery"
+        *ngFor="let deviceItem of deviceItems"
+        [deviceItem]="deviceItem"
+        (delete)="onDeviceItemDelete($event)"
+        [ngClass]></app-device-item>
+</section>

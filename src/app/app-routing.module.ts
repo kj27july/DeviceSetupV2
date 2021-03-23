@@ -1,25 +1,34 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';//
-import { DeviceListingComponent } from './device-listing/device-listing.component';
+import { CommonModule } from '@angular/common';
+import { DeviceItemListComponent } from './device-item-list/device-item-list.component';
+import { DeviceItemFormComponent } from './device-item-form/device-item-form.component';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './auth.service';
 const routes: Routes = [
- 
   {
     path:'',
     component:LoginComponent
   },
-  {
-    path:'device',
-    component:DeviceListingComponent,
-    canActivate:[AuthService]
-  }
-//,
-//   {
-// path:'device/:id',
-// component:DeviceListingComponent
-//   }
+  {                   
+    path: "device",
+    children: [
+      { path: "", component: DeviceItemListComponent },
+      { path: "", component: DeviceItemFormComponent, outlet: "secondary" }
+    ]
+  },
 ];
+  
+
+
+// @NgModule({
+//   declarations: [ ],
+//   imports: [
+//     CommonModule,
+//     RouterModule.forRoot(routes)],
+//     exports: [RouterModule]
+//   ]
+// })
+// export class AppRoutingModule { }
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

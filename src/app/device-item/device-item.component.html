@@ -1,0 +1,18 @@
+<tr>
+<th>{{ deviceItem.name | uppercase}}</th>
+<th *ngIf="deviceItem.OsType"> {{deviceItem.OsType}}</th>
+<th *ngIf="!deviceItem.OsType"> Unavailable</th>
+<th *ngIf="deviceItem.battery"> {{deviceItem.battery}}</th>
+<th *ngIf="!deviceItem.battery"> Unavailable</th>
+<th *ngIf="deviceItem.memory"> {{deviceItem.memory}}</th>
+<th *ngIf="!deviceItem.memory"> Unavailable</th>
+<th class="tools">
+  
+  <a (click)="onDelete()" class="delete">
+    Delete
+  </a>
+  <a class="details">
+    Edit
+  </a>
+</th>
+</tr>
