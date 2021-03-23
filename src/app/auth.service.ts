@@ -41,13 +41,13 @@ export class AuthService implements CanActivate
       return false;
     }
   }
-  // getPermission(findPermission:string):number
-  // {
-  //   var role:string=JSON.parse(localStorage.getItem(AuthService.currentUser))[1];
-  //   var val:number= JSON.parse(localStorage.getItem(role)).indexOf(findPermission);
-  //   console.log(val);
-  //   return val;
+  getPermission(findPermission:string):number
+  {
+    var role:string=JSON.parse(localStorage.getItem(AuthService.currentUser))[1];
+    var val:number= JSON.parse(localStorage.getItem(role)).indexOf(findPermission);
+    console.log(val);
+    return val;
     
-  // }
+  }
 
 }

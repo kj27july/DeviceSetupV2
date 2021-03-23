@@ -18,13 +18,13 @@ export class LoginComponent implements OnInit {
       }
       get userName()
       {
-        return this.userForm.get('username');
+        return this.form.get('username');
       }
       get passWord()
       {
-        return this.userForm.get('password');
+        return this.form.get('password');
       }
-      userForm=this.formBuilder.group(
+      form=this.formBuilder.group(
         {
         username:['',[Validators.required,Validators.minLength(2),Validators.maxLength(30)]],
         password:['',[Validators.required,Validators.minLength(2),Validators.maxLength(30)]] 
@@ -41,22 +41,23 @@ export class LoginComponent implements OnInit {
  
    return this.authService.authenticate(this.userName.value,this.passWord.value);
        }
+      }
 
 
+// import { Component, OnInit } from '@angular/core';
 
-  // userForm:FormGroup;
-  // constructor() { }
+// @Component({
+//   selector: 'app-login',
+//   templateUrl: './login.component.html',
+//   styleUrls: ['./login.component.scss']
+// })
+// export class LoginComponent implements OnInit {
 
-  // ngOnInit()  {
-  //  // step-2
-  //   this.userForm=new FormGroup({
-  //     username:new FormControl(),
-  //     password:new FormControl()
-  //   });
-  // }
-  // onLogin():void{
-  //   console.log(this.userForm.value)}
-}
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }
 
 
-  

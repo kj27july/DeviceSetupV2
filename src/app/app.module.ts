@@ -1,23 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule} from "@angular/forms";
+import { BatteryLevel } from './battery.directive';
 import { AppComponent } from './app.component';
+import { DeviceItemFormComponent } from './device-item-form/device-item-form.component';
+import { DeviceItemComponent } from './device-item/device-item.component';
+import { DeviceItemListComponent } from './device-item-list/device-item-list.component';
+import { lookupListToken, lookupLists } from './providers';
+import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
-import { DeviceListingComponent } from './device-listing/device-listing.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    DeviceListingComponent
+    AppComponent,   
+    DeviceItemFormComponent, 
+    DeviceItemComponent, 
+    DeviceItemListComponent,
+    BatteryLevel,
+    LoginComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ {provide: lookupListToken,useValue: lookupLists} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
